@@ -23,6 +23,7 @@ public class configuracoes extends AppCompatActivity {
     List<String> opcoes;
     ArrayAdapter<String> adaptador;
     ListView lvOpcoes;
+    int opcao = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,11 +89,16 @@ public class configuracoes extends AppCompatActivity {
         //define o titulo
         builder.setTitle("Notificações");
         //define a mensagem
-        builder.setMessage("Notificações estão Ativadas!");
+        if(opcao == 0) {
+            builder.setMessage("Notificações estão Ativadas!");
+        }else{
+            builder.setMessage("Notificações estão Desativadas!");
+        }
         /*builder.setIcon(R.drawable.desafiosdeti);*/
         //define um botão positivo
         builder.setPositiveButton("Ativar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface arg0, int arg1) {
+                opcao = 0;
                 /*TextView message = (TextView) alerta.findViewById(android.R.id.message);
                 message.setText("Notificações estão Ativadas!");*/
             }
@@ -100,6 +106,7 @@ public class configuracoes extends AppCompatActivity {
         //define um botão negativo
         builder.setNegativeButton("Desativar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface arg0, int arg1) {
+                opcao = 2;
                 /*TextView message = (TextView) alerta.findViewById(android.R.id.message);
                 message.setText("Notificações estão Desativadas!");*/
             }
@@ -127,7 +134,7 @@ public class configuracoes extends AppCompatActivity {
         //define o titulo
         builder.setTitle("Termos de Uso");
         //define a mensagem
-        builder.setMessage("Em criação!");
+        builder.setMessage("Em construção!");
         /*builder.setIcon(R.drawable.desafiosdeti);*/
         //define um botão positivo
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
@@ -163,7 +170,7 @@ public class configuracoes extends AppCompatActivity {
         //define o titulo
         builder.setTitle("Ajuda");
         //define a mensagem
-        builder.setMessage("Em criação!");
+        builder.setMessage("Em construção!");
         /*builder.setIcon(R.drawable.desafiosdeti);*/
         //define um botão positivo
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
@@ -199,7 +206,7 @@ public class configuracoes extends AppCompatActivity {
         //define o titulo
         builder.setTitle("Sobre Nós");
         //define a mensagem
-        builder.setMessage("Em criação!");
+        builder.setMessage("Em construção!");
         /*builder.setIcon(R.drawable.desafiosdeti);*/
         //define um botão positivo
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
