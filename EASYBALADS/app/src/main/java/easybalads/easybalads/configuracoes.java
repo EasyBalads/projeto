@@ -88,29 +88,29 @@ public class configuracoes extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         //define o titulo
         builder.setTitle("Notificações");
+        /*builder.setIcon(R.drawable.desafiosdeti);*/
         //define a mensagem
         if(opcao == 0) {
-            builder.setMessage("Notificações estão Ativadas!");
-        }else{
-            builder.setMessage("Notificações estão Desativadas!");
-        }
-        /*builder.setIcon(R.drawable.desafiosdeti);*/
-        //define um botão positivo
-        builder.setPositiveButton("Ativar", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface arg0, int arg1) {
-                opcao = 0;
-                /*TextView message = (TextView) alerta.findViewById(android.R.id.message);
-                message.setText("Notificações estão Ativadas!");*/
-            }
-        });
-        //define um botão negativo
-        builder.setNegativeButton("Desativar", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface arg0, int arg1) {
-                opcao = 2;
+            builder.setMessage("Notificações estão ativadas!");
+            //define um botão negativo
+            builder.setNegativeButton("Desativar", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface arg0, int arg1) {
+                    opcao = 2;
                 /*TextView message = (TextView) alerta.findViewById(android.R.id.message);
                 message.setText("Notificações estão Desativadas!");*/
-            }
-        });
+                }
+            });
+        }else{
+            builder.setMessage("Notificações estão desativadas!");
+            //define um botão positivo
+            builder.setPositiveButton("Ativar", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface arg0, int arg1) {
+                    opcao = 0;
+                /*TextView message = (TextView) alerta.findViewById(android.R.id.message);
+                message.setText("Notificações estão Ativadas!");*/
+                }
+            });
+        }
         //define um botão neutro
         /*builder.setNeutralButton("Cancelar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface arg0, int arg1) {
