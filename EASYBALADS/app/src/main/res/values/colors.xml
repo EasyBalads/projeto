@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#ed27e4</color>
     <color name="colorAccent">#19191a</color>
     <color name="corpo">#ffffff</color>
+    <color name="cadastrar">#e0075b9c</color>
+    <color name="cancelar">#e0ce2528</color>
+
 </resources>
