@@ -19,8 +19,7 @@ public class detalhes_de_evento extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) { //Botão adicional na ToolBar
         switch (item.getItemId()) {
             case android.R.id.home:  //ID do seu botão (gerado automaticamente pelo android, usando como está, deve funcionar
-                startActivity(new Intent(this, MainActivity.class));  //O efeito ao ser pressionado do botão (no caso abre a activity)
-                finish();  //Método para matar a activity e não deixa-lá indexada na pilhagem
+                this.finish(); //Método para matar a activity e não deixa-lá indexada na pilhagem
                 break;
             default:break;
         }
@@ -29,8 +28,7 @@ public class detalhes_de_evento extends AppCompatActivity {
 
     @Override
     public void onBackPressed(){ //Botão BACK padrão do android
-        startActivity(new Intent(this, MainActivity.class)); //O efeito ao ser pressionado do botão (no caso abre a activity)
-        finish(); //Método para matar a activity e não deixa-lá indexada na pilhagem
+        this.finish(); //Método para matar a activity e não deixa-lá indexada na pilhagem
         return;
     }
 }

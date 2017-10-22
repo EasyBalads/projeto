@@ -71,7 +71,10 @@ public class inicial_usuario extends AppCompatActivity
 
         if (id == R.id.nav_perfil) {
             startActivity(new Intent(this, perfil_usuario.class));
-        } else if (id == R.id.nav_sair) {
+        }else if (id == R.id.nav_detalhes) {
+            startActivity(new Intent(this, detalhes_de_evento.class));
+
+        }else if (id == R.id.nav_sair) {
             finish();
         }
 

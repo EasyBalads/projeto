@@ -44,9 +44,9 @@ public class login extends AppCompatActivity {
 
     public void onClick(View v){
         if(v.getId() == R.id.btEntrar) {
-            if(login.getText().toString().equals("easy")){
+            if(login.getText().toString().equals("easy@easy.com.br")){
                 startActivity(new Intent(this, inicial_usuario.class));
-            }else if(login.getText().toString().equals("balads")){
+            }else if(login.getText().toString().equals("balads@balads.com.br")){
                 startActivity(new Intent(this, inicial_cliente.class));
             }
         }
