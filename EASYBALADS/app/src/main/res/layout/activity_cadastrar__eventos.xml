@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_table_form_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:shrinkColumns="2"
+    android:stretchColumns="2"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp">
+
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/edtTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorbotao"
+            android:hint="Informe Titulo"
+            android:maxLines="1"/>
+
+        <requestFocus />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/edtData"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorbotao"
+            android:inputType="textAutoComplete"
+            android:hint="Informe Data"
+            android:maxLines="1"/>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/edtHora"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorbotao"
+            android:inputType="textAutoComplete"
+            android:hint="Informe Hora"
+            android:maxLines="1"/>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+
+
+        <EditText android:id="@+id/edtDescricao"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorbotao"
+            android:hint="Informe Descrição"/>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+
+        <EditText
+            android:id="@+id/edtCep"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorbotao"
+            android:hint="Informe CEP"
+            android:layout_marginRight="50dp"
+            android:inputType="number"
+            android:maxLines="1"
+            android:maxLength="8"/>
+
+        <Button android:id="@+id/btnBuscar"
+            style="@style/botao"
+            android:text="Buscar"
+            android:onClick="clickBuscarCep"/>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+
+        <EditText
+            android:id="@+id/edtEndereco"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorbotao"
+            android:hint="Informe Endereço"
+            android:inputType="textAutoComplete"
+            android:maxLines="1"/>
+
+    </TableRow>
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+
+        <EditText
+            android:id="@+id/edtBairro"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorbotao"
+            android:hint="Informe Bairro"
+            android:inputType="textAutoComplete"
+            android:maxLines="1"/>
+
+    </TableRow>
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+
+        <EditText
+            android:id="@+id/edtCidade"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorbotao"
+            android:hint="Informe Cidade"
+            android:inputType="textAutoComplete"
+            android:maxLines="1"/>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+
+        <EditText
+            android:id="@+id/edtEstado"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorbotao"
+            android:hint="Informe Estado"
+            android:inputType="textAutoComplete"
+            android:maxLines="1"/>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+
+        <EditText
+            android:id="@+id/edtValor"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorbotao"
+            android:hint="Informe Valor"
+            android:inputType="numberDecimal"
+            android:maxLines="1"/>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_marginTop="16dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center">
+
+
+        <Button android:id="@+id/btnCadEve"
+            style="@style/botao"
+            android:text="Cadastrar Evento"
+            android:onClick="clickCadEvento"/>
+    </TableRow>
+
+</TableLayout>
+</ScrollView>

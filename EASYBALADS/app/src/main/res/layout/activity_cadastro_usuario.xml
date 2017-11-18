@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_table_form_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:shrinkColumns="2"
+    android:stretchColumns="2"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp">
+
+
+
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+
+        <EditText
+            android:id="@+id/edtNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorbotao"
+            android:hint="Informe seu Nome"
+            android:maxLines="1"
+            android:inputType="textAutoComplete">
+
+            <requestFocus />
+        </EditText>
+
+    </TableRow>
+
+
+
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+
+        <EditText
+            android:id="@+id/edtSobrenome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorbotao"
+            android:hint="Informe seu Sobrenome"
+            android:maxLines="1"
+            android:inputType="textAutoComplete"/>
+
+    </TableRow>
+
+
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+
+        <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorbotao"
+            android:inputType="textEmailAddress"
+            android:hint="Informe seu E-mail" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+
+        <EditText android:id="@+id/edtSenha"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/colorbotao"
+            android:inputType="textPassword"
+            android:hint="Informe sua Senha" />
+
+    </TableRow>
+
+    <TableRow
+
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="16dp">
+
+
+        <Button android:id="@+id/btnSalvar"
+            android:layout_span="2"
+            style="@style/botao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Criar uma conta EasyBalads"
+            android:layout_weight="1"
+            android:onClick="cadUserFisica"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+    </TableRow>
+</TableLayout>
