@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#5c396f</color>
+    <color name="colorPrimaryDark">#ec9339a3</color>
+    <color name="colorAccent">#19191a</color>
+    <color name="corpo">#ffffff</color>
+    <color name="cadastrar">#e0075b9c</color>
+    <color name="cancelar">#e0ce2528</color>
+    <color name="colorbotao">#e0075b9c</color>
+</resources>
