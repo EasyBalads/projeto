@@ -25,6 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/colorbotao"
+            android:inputType="textAutoComplete"
             android:hint="Informe Titulo"
             android:maxLines="1"/>
 

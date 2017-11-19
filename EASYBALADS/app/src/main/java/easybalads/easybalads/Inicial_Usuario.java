@@ -56,6 +56,7 @@ public class Inicial_Usuario extends AppCompatActivity
     Util util;
     String lat,lng;
     ProgressDialog dialog;
+    String titulo2,data2, hora2, descricao2,cp2,end2, bairro2,cidade2, estado2,valor2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -359,6 +360,8 @@ public class Inicial_Usuario extends AppCompatActivity
     public void clickCadEvento(View v){
         Handler handle = new Handler();
         dialog.setMessage("Cadastrando ...");
+        lat = null;
+        lng = null;
         String cod;
         final EditText titulo,data,hora,descricao,cp,end,bairro,cidade,estado,valor;
         titulo = (EditText)findViewById(R.id.edtTitulo);
@@ -395,57 +398,18 @@ public class Inicial_Usuario extends AppCompatActivity
         }else {
             dialog.show();
             cod = end.getText().toString() + "," + bairro.getText().toString() + "," + cidade.getText().toString() + "," + estado.getText().toString();
+            titulo2 = titulo.getText().toString();
+            data2 = data.getText().toString();
+            hora2 = hora.getText().toString();
+            descricao2 = descricao.getText().toString();
+            cp2 = cp.getText().toString();
+            end2 = end.getText().toString();
+            bairro2 = bairro.getText().toString();
+            cidade2 = cidade.getText().toString();
+            estado2 = estado.getText().toString();
+            valor2 = valor.getText().toString();
             new GetCoordinates().execute(cod.replace(" ", "+"));
-            handle.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                cadastrarBD(titulo.getText().toString(),data.getText().toString(),hora.getText().toString(),descricao.getText().toString(),
-                cp.getText().toString(),end.getText().toString(),bairro.getText().toString(),cidade.getText().toString(),estado.getText().toString(),valor
-                .getText().toString());
-                }
-            }, 15000);
-
-
-
-
         }
-    }
-
-    public void cadastrarBD(final String titulo, final String data, final String hora, final String descricao, final String cp, final String end, final String bairro, final String cidade, final String estado, final String valor){
-        DatabaseReference mDatabaseUser, mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("eventos");
-        mDatabaseUser = FirebaseDatabase.getInstance().getReference().child(user.getUid());
-        final DatabaseReference novoEvento = mDatabase.push();
-        mDatabaseUser.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                novoEvento.child("titulo").setValue(titulo);
-                novoEvento.child("data").setValue(data);
-                novoEvento.child("hora").setValue(hora);
-                novoEvento.child("descricao").setValue(descricao);
-                novoEvento.child("cep").setValue(cp);
-                novoEvento.child("endereco").setValue(end);
-                novoEvento.child("bairro").setValue(bairro);
-                novoEvento.child("cidade").setValue(cidade);
-                novoEvento.child("estado").setValue(estado);
-                novoEvento.child("valor").setValue(valor);
-                novoEvento.child("latitude").setValue(lat);
-                novoEvento.child("longitude").setValue(lng);
-                novoEvento.child("participantes").setValue(0);
-                novoEvento.child("organizador").setValue(razao);
-                novoEvento.child("idusuario").setValue(user.getUid());
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-        dialog.dismiss();
-        Toast.makeText(Inicial_Usuario.this, "Evento cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
-        it.removeAllViews();
-        np = getLayoutInflater().inflate(R.layout.activity_cadastrar__eventos, null);
-        it.addView(np);
     }
 
     public class GetCoordinates extends AsyncTask<String,Void,String> {
@@ -478,12 +442,50 @@ public class Inicial_Usuario extends AppCompatActivity
                         .getJSONObject("location").get("lat").toString();
                 lng = ((JSONArray)jsonObject.get("results")).getJSONObject(0).getJSONObject("geometry")
                         .getJSONObject("location").get("lng").toString();
+                cadastrarBD();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
 
 
+    }
+
+    public void cadastrarBD(){
+        DatabaseReference mDatabaseUser, mDatabase;
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("eventos");
+        mDatabaseUser = FirebaseDatabase.getInstance().getReference().child(user.getUid());
+        final DatabaseReference novoEvento = mDatabase.push();
+        mDatabaseUser.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                novoEvento.child("titulo").setValue(titulo2);
+                novoEvento.child("data").setValue(data2);
+                novoEvento.child("hora").setValue(hora2);
+                novoEvento.child("descricao").setValue(descricao2);
+                novoEvento.child("cep").setValue(cp2);
+                novoEvento.child("endereco").setValue(end2);
+                novoEvento.child("bairro").setValue(bairro2);
+                novoEvento.child("cidade").setValue(cidade2);
+                novoEvento.child("estado").setValue(estado2);
+                novoEvento.child("valor").setValue(valor2);
+                novoEvento.child("latitude").setValue(lat);
+                novoEvento.child("longitude").setValue(lng);
+                novoEvento.child("participantes").setValue(0);
+                novoEvento.child("organizador").setValue(razao);
+                novoEvento.child("idusuario").setValue(user.getUid());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        dialog.dismiss();
+        Toast.makeText(Inicial_Usuario.this, "Evento cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
+        it.removeAllViews();
+        np = getLayoutInflater().inflate(R.layout.activity_cadastrar__eventos, null);
+        it.addView(np);
     }
 
 }
