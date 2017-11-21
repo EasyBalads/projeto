@@ -93,13 +93,17 @@ public class Login extends AppCompatActivity {
 
     public void enviarEmail(String email){
         FirebaseAuth auth = FirebaseAuth.getInstance();
-        final int op = 1;
 
         auth.sendPasswordResetEmail(email)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
+                        int op;
                         if (task.isSuccessful()) {
+                            op = 1;
+                            alertEsqueceu(op);
+                        } else {
+                            op = 0;
                             alertEsqueceu(op);
                         }
                     }

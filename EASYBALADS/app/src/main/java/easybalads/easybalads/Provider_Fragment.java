@@ -93,12 +93,14 @@ public class Provider_Fragment extends SupportMapFragment implements OnMapReadyC
         }
 
         if (ContextCompat.checkSelfPermission(getContext(),android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-        ActivityCompat.requestPermissions((Activity) getContext(),new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
-                200);
+            ActivityCompat.requestPermissions((Activity) getContext(),new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
+                    200);
+            startActivity(new Intent(getContext(), Inicial_Usuario.class));
+            this.getActivity().finish();
         }
 
-       GoogleMap.OnMyLocationChangeListener myLocationChangeListener = new GoogleMap.OnMyLocationChangeListener() {
-           int cont =0;
+        GoogleMap.OnMyLocationChangeListener myLocationChangeListener = new GoogleMap.OnMyLocationChangeListener() {
+            int cont =0;
             @Override
             public void onMyLocationChange (Location location) {
                 LatLng loc = new LatLng (location.getLatitude(), location.getLongitude());
@@ -283,14 +285,14 @@ public class Provider_Fragment extends SupportMapFragment implements OnMapReadyC
                                     op = 1;
                                     break;
                                 }
-                                }
                             }
                         }
+                    }
                     euVouBanco(op, key, participantes, ukey, posicao, existe);
-                    }else {
+                }else {
                     euVouBanco(op, key, participantes, ukey, posicao, existe);
                 }
-                }
+            }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -300,12 +302,36 @@ public class Provider_Fragment extends SupportMapFragment implements OnMapReadyC
 
     }
 
-    public void euVouBanco(int op, final String key, int participantes,String ukey,int posicao,int existe) {
+    public void euVouBanco(int op, final String key, final int participantes, final String ukey, final int posicao, int existe) {
         if (op == 1) {
             int pt2 = participantes - 1;
-            FirebaseDatabase d3 = FirebaseDatabase.getInstance();
-            DatabaseReference m3 = d3.getReference("euvou").child(ukey);
-            m3.child(String.valueOf(posicao)).removeValue();
+
+            if(pt2 > 0 && posicao < participantes){
+                FirebaseDatabase d7 = FirebaseDatabase.getInstance();
+                DatabaseReference m7 = d7.getReference("euvou");
+                m7.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        for(int i = posicao;i < participantes;i++){
+                            FirebaseDatabase d8 = FirebaseDatabase.getInstance();
+                            DatabaseReference m8 = d8.getReference("euvou").child(ukey);
+                            m8.child(String.valueOf(i)).setValue(dataSnapshot.child(ukey).child(String.valueOf(i+1)).getValue().toString());
+                            m8.child(String.valueOf(i+1)).removeValue();
+                        }
+                    }
+
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+            }else{
+                FirebaseDatabase d3 = FirebaseDatabase.getInstance();
+                DatabaseReference m3 = d3.getReference("euvou").child(ukey);
+                m3.child(String.valueOf(posicao)).removeValue();
+            }
 
             FirebaseDatabase d2 = FirebaseDatabase.getInstance();
             DatabaseReference m2 = d2.getReference("eventos").child(key.toString());

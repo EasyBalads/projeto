@@ -24,6 +24,8 @@
     </group>
     <item android:id="@+id/nav_conf"
         android:title="Configurações" />
+    <item android:id="@+id/nav_termo"
+        android:title="Termos de Uso" />
     <item android:id="@+id/nav_logout"
         android:title="Logout"
         android:visible="false"/>
