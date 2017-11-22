@@ -42,7 +42,7 @@ public class Login extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 home();
-                finish();
+                this.finish();
                 break;
             default:break;
         }
@@ -52,7 +52,7 @@ public class Login extends AppCompatActivity {
     @Override
     public void onBackPressed(){
         home();
-        finish();
+        this.finish();
         return;
     }
 
@@ -173,8 +173,6 @@ public class Login extends AppCompatActivity {
                             } else {
                                 Toast.makeText(Login.this, "Bem Vindo!", Toast.LENGTH_SHORT).show();
                                 home();
-                                finish();
-
                             }
                         }
                     });
@@ -183,12 +181,13 @@ public class Login extends AppCompatActivity {
 
     public void home(){
         startActivity(new Intent(this, Inicial_Usuario.class));
+        this.finish();
     }
 
     public void clickCad(View v){
         if(v.getId() == R.id.btnCad){
             startActivity(new Intent(this, Cadastrar.class));
-            finish();
+            this.finish();
         }
     }
 

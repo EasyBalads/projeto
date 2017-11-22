@@ -407,7 +407,7 @@ public class Provider_Fragment extends SupportMapFragment implements OnMapReadyC
 
     }
     public void cadastro(){
-        startActivity(new Intent(getContext(), Login.class));
+        startActivity(new Intent(getActivity(), Login.class));
         this.getActivity().finish();
     }
 

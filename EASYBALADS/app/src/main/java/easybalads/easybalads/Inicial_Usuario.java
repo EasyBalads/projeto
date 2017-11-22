@@ -50,18 +50,15 @@ import java.util.List;
 public class Inicial_Usuario extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private FragmentManager fragmentManager;
-    FrameLayout it;
-    View np;
+    private FrameLayout it;
+    private View np;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    FirebaseUser user;
-    String tipo;
-    String nome,sobrenome,razao,email,fone,cnpj;
-    EditText cep;
-    Util util;
-    String lat,lng;
-    ProgressDialog dialog;
-    String titulo2,data2, hora2, descricao2,cp2,end2, bairro2,cidade2, estado2,valor2;
+    private FirebaseUser user;
+    private String tipo,nome,sobrenome,razao,email,fone,cnpj,lat,lng,titulo2,data2, hora2, descricao2,cp2,end2, bairro2,cidade2, estado2,valor2;
+    private EditText cep;
+    private Util util;
+    private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,7 +128,7 @@ public class Inicial_Usuario extends AppCompatActivity
 
         if (id == R.id.nav_login) {
             startActivity(new Intent(this, Login.class));
-            finish();
+            this.finish();
         }else if (id == R.id.nav_home) {
             it.removeAllViews();
             getSupportActionBar().setTitle(R.string.app_name);
@@ -160,7 +157,7 @@ public class Inicial_Usuario extends AppCompatActivity
         }else if (id == R.id.nav_termo){
             cliqueTermos();
         }else if (id == R.id.nav_logout){
-            FirebaseAuth.getInstance().signOut();
+            mAuth.getInstance().signOut();
             startActivity(new Intent(this, Inicial_Usuario.class));
             finish();
         }else if (id == R.id.nav_sair) {
@@ -172,7 +169,7 @@ public class Inicial_Usuario extends AppCompatActivity
         return true;
     }
 
-    public void cliqueTermos(){
+    private void cliqueTermos(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Termos de Uso");
         builder.setMessage("Data de Vigência:\n18 de Novembro de 2017\n\n" +
@@ -225,7 +222,7 @@ public class Inicial_Usuario extends AppCompatActivity
         leftSpacer.setVisibility(View.GONE);
     }
 
-    public void setInfoPerfil(){
+    private void setInfoPerfil(){
         TextView Nome = (TextView)findViewById(R.id.perfilNome);
         TextView Razao = (TextView)findViewById(R.id.perfilRazao);
         TextView Email = (TextView)findViewById(R.id.perfilEmail);
@@ -257,7 +254,7 @@ public class Inicial_Usuario extends AppCompatActivity
 
     }
 
-        public void consultarEventos(){
+    private void consultarEventos(){
 
         FirebaseDatabase d1 = FirebaseDatabase.getInstance();
         DatabaseReference m1 = d1.getReference("eventos");
@@ -290,7 +287,7 @@ public class Inicial_Usuario extends AppCompatActivity
 
     }
 
-    public void Listar(List<Eventos> ev){
+    private void Listar(List<Eventos> ev){
         ListView listView;
         List<Eventos> list_events;
 
@@ -310,7 +307,7 @@ public class Inicial_Usuario extends AppCompatActivity
         return events;
     }
 
-    public void Logar(){
+    private void Logar(){
         NavigationView navi = (NavigationView)findViewById(R.id.nav_view);
         navi.setNavigationItemSelectedListener(this);
         Menu menu = navi.getMenu();
@@ -321,7 +318,7 @@ public class Inicial_Usuario extends AppCompatActivity
 
     }
 
-    public void Logado(){
+    private void Logado(){
         String uid = user.getUid();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("users").child(uid);
@@ -351,7 +348,7 @@ public class Inicial_Usuario extends AppCompatActivity
         });
     }
 
-    public  void tipeUser(){
+    private void tipeUser(){
         NavigationView navi = (NavigationView)findViewById(R.id.nav_view);
         navi.setNavigationItemSelectedListener(this);
         View header = navi.getHeaderView(0);
@@ -473,7 +470,7 @@ public class Inicial_Usuario extends AppCompatActivity
         }
     }
 
-    public class GetCoordinates extends AsyncTask<String,Void,String> {
+    private class GetCoordinates extends AsyncTask<String,Void,String> {
 
 
         @Override
@@ -512,7 +509,7 @@ public class Inicial_Usuario extends AppCompatActivity
 
     }
 
-    public void cadastrarBD(){
+    private void cadastrarBD(){
         DatabaseReference mDatabaseUser, mDatabase;
         mDatabase = FirebaseDatabase.getInstance().getReference().child("eventos");
         mDatabaseUser = FirebaseDatabase.getInstance().getReference().child(user.getUid());

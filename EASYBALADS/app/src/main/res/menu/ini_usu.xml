@@ -3,34 +3,46 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:icon="@drawable/ic_login"
         android:id="@+id/nav_login"
         android:title="Login/Cadastrar"/>
     <group android:checkableBehavior="single">
         <item
+            android:icon="@drawable/ic_map"
             android:id="@+id/nav_home"
             android:title="Mapa" />
         <item
+            android:icon="@drawable/ic_meu_perfil"
             android:id="@+id/nav_perfil"
             android:title="Meu Perfil"
             android:visible="false"/>
         <item
+            android:icon="@drawable/ic_cadastrar_eventos"
             android:id="@+id/nav_cad"
             android:title="Cadastrar Evento"
             android:visible="false"/>
         <item
+            android:icon="@drawable/ic_eventos_cadastrados"
             android:id="@+id/nav_eve"
             android:title="Eventos Cadastrados"
             android:visible="false"/>
     </group>
-    <item android:id="@+id/nav_conf"
+    <item
+        android:icon="@drawable/ic_configuracoes"
+        android:id="@+id/nav_conf"
         android:title="Configurações" />
-    <item android:id="@+id/nav_termo"
+    <item
+        android:icon="@drawable/ic_termos"
+        android:id="@+id/nav_termo"
         android:title="Termos de Uso" />
-    <item android:id="@+id/nav_logout"
+    <item
+        android:icon="@drawable/ic_loggout"
+        android:id="@+id/nav_logout"
         android:title="Logout"
         android:visible="false"/>
     <item
+        android:icon="@drawable/ic_fechar"
         android:id="@+id/nav_sair"
-        android:title="Sair" />
+        android:title="Fechar" />
 
 </menu>

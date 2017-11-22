@@ -21,12 +21,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Cadastrar extends AppCompatActivity {
-    RadioButton pf;
-    FrameLayout it;
-    View np;
+    private RadioButton pf;
+    private FrameLayout it;
+    private View np;
     private FirebaseAuth mAuth;
-    private EditText edtNome,edtSobrenome,edtEmail,edtSenha;
-    private EditText edtNome2,edtRazao,edtEmail2,edtSenha2,edtFone,edtCnpj;
+    private EditText edtNome,edtSobrenome,edtEmail,edtSenha,edtNome2,edtRazao,edtEmail2,edtSenha2,edtFone,edtCnpj;
 
 
     @Override
@@ -50,7 +49,7 @@ public class Cadastrar extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 startActivity(new Intent(this, Login.class));
-                finish();
+                this.finish();
                 break;
             default:break;
         }
@@ -60,7 +59,7 @@ public class Cadastrar extends AppCompatActivity {
     @Override
     public void onBackPressed(){
         startActivity(new Intent(this, Login.class));
-        finish();
+        this.finish();
         return;
     }
 
@@ -101,7 +100,6 @@ public class Cadastrar extends AppCompatActivity {
                                 myRef.child("uid").setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
                                 Toast.makeText(Cadastrar.this, "Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
                                 home();
-                                finish();
                             }
                         }
                     });
@@ -154,7 +152,6 @@ public class Cadastrar extends AppCompatActivity {
                                 myRef.child("uid").setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
                                 Toast.makeText(Cadastrar.this, "Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
                                 home();
-                                finish();
                             }
                         }
                     });
@@ -163,6 +160,7 @@ public class Cadastrar extends AppCompatActivity {
 
     public void home(){
         startActivity(new Intent(this, Inicial_Usuario.class));
+        this.finish();
     }
 
     public final static boolean isValidEmail(CharSequence target) {

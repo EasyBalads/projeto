@@ -19,7 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class Detalhes_de_Evento extends AppCompatActivity {
-    String titulo,descricao,data, hora, valor,organizador, endereco,participantes;
+    private String titulo,descricao,data, hora, valor,organizador, endereco,participantes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
