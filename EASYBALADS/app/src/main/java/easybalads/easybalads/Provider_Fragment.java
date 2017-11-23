@@ -95,8 +95,6 @@ public class Provider_Fragment extends SupportMapFragment implements OnMapReadyC
         if (ContextCompat.checkSelfPermission(getContext(),android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions((Activity) getContext(),new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
                     200);
-            startActivity(new Intent(getContext(), Inicial_Usuario.class));
-            this.getActivity().finish();
         }
 
         GoogleMap.OnMyLocationChangeListener myLocationChangeListener = new GoogleMap.OnMyLocationChangeListener() {
